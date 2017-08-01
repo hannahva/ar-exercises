@@ -5,10 +5,9 @@ class Store < ActiveRecord::Base
   has_many :employees
 
   def has_apparel
-    if !mens_apparel.present? && !womens_apparel.present?
-      errors.add(:mens_apparel && :womens_apparel, "stores must carry some kind of apparel!")
-    else
-
+    if (!mens_apparel.present? || mens_apparel == false) &&
+       (!womens_apparel.present? || womens_apparel == false)
+      errors.add(:apparel, "stores must carry some kind of apparel!")
     end
   end
 end
