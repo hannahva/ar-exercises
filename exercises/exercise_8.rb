@@ -9,5 +9,6 @@ require_relative './exercise_7'
 
 
 @store1.employees.create(first_name: "Me", last_name: "Deffos-Me", hourly_rate: 150)
+@store1.employees.create(first_name: "Test", last_name: "Testing", hourly_rate: 130)
 
 puts @store1.employees.last.password

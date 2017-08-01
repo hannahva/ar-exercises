@@ -3,7 +3,7 @@ class Employee < ActiveRecord::Base
   validates :first_name, :last_name, presence: true
   validates :hourly_rate, numericality: { only_integer: true, greater_than: 40, less_than: 200 }
   validates_associated :store
-  before_create :create_password
+  after_create :create_password
 
   private
   def create_password
@@ -11,14 +11,5 @@ class Employee < ActiveRecord::Base
 
     self.password = new_password
   end
-
-  # def new_password(length=8)
-  #   new_password = ""
-  #   characters = ("A".."Z")
-  #   length.times do
-  #     new_password << characters[rand(characters.length-1)]
-  #   end
-  #   new_password
-  # end
 
 end
