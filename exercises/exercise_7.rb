@@ -17,5 +17,5 @@ puts "Please enter a Store Name"
 @new_store.save
 
 @new_store.errors.each do |attr, msg|
-  puts "#{attr} #{msg}"
+  puts "#{attr}: #{msg}"
 end
